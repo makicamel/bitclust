@@ -30,6 +30,7 @@ module BitClust
       when 'file'
         new(uri.path)
       when 'druby'
+        require 'drb'
         DRbObject.new_with_uri(uri.to_s)
       else
         raise InvalidScheme, "unknown database scheme: #{uri.scheme}"
